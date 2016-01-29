@@ -22,3 +22,14 @@ Pizza.prototype.priceCalc = function(size, toppings) {
 	return this.price = size;
 }
 
+$(function() {
+	$('form#pizza-selections').on("submit", function(event) {
+		event.preventDefault();
+		$('input.pizza-item').each(function() {
+			if ($(this).prop('checked')) {
+				$('ul.output').append('<li class="receipt-list"></li>');
+				$('li.receipt-list').text($(this).prop('name') + ": " + $(this).val())
+			}
+		});
+	});
+});
