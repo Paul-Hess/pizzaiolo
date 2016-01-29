@@ -7,4 +7,10 @@ describe('Pizza', function() {
 		expect(testPizza.large).to.equal(18);
 		expect(testPizza.price).to.equal(0.00);
 	});
+
+		it('should dynamically create toppings and affix price', function() {
+		var testPizza = new Pizza();
+		testPizza.createTopping('artichoke', 1.75);
+		expect(testPizza.toppings[0]).to.have.any.keys('topping');
+	});
 });
