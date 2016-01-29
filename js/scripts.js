@@ -23,7 +23,7 @@ Pizza.prototype.setSize = function(pieSize, sizePrice) {
 	return this.pieSize = newSize;
 }
 
-Pizza.prototype.priceCalc = function() {
+Pizza.prototype.priceCalc = function(choicesArray) {
 	var totalPrice = 0;
 	this.choices.forEach(function(choice) {
 		totalPrice += choice.price;
@@ -34,15 +34,28 @@ Pizza.prototype.priceCalc = function() {
 $(function() {
 	$('form#pizza-selections').on("submit", function(event) {
 		event.preventDefault();
+		$('li.receipt-list').remove();
 		var newPizza = new Pizza();
 		$('input.pizza-item').each(function() {
 			if ($(this).prop('checked')) {
 				var toppingName = $(this).prop('name');
-				var toppingPrice = $(this).val();
+				var toppingPrice = parseFloat($(this).val());
 				$('ul.output').append('<li class="receipt-list"></li>');
 				newPizza.createTopping(toppingName, toppingPrice);
-				$('li.receipt-list').last().text(toppingName + ": " + toppingPrice)
+				$('li.receipt-list').last().text(toppingName + ": $" + toppingPrice)
 			}
 		});
+		$('input.pizza-size').each(function() {
+			if ($(this).prop('checked')) {
+				var sizeName = $(this).prop('id');
+				var sizePrice = parseFloat($(this).val());
+				$('ul.output').append('<li class="receipt-list"></li>');
+				newPizza.setSize(sizeName, sizePrice);
+				$('li.receipt-list').last().text(sizeName + ": $" + sizePrice)
+			}
+		});
+		$('ul.output').append('<li class="receipt-list"></li>');
+		console.log(newPizza.priceCalc(newPizza.choices))
+		$('li.receipt-list').last().text("Your total is: $" + newPizza.priceCalc(newPizza.choices));
 	});
 });
