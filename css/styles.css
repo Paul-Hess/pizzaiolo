@@ -1,71 +1,53 @@
-form.pizza-selections {
-	float: left;
-	size: 20%;
+* {
 	font-family: arial;
+}
+form.pizza-selections {
+	width: 100%;
 	font-size: 1em;
 }
 
 div.size, div.meat, div.veg, div.cheese, div.sauce {
-	width: 5%;
+	height: 300px;
+	width: 10%;
 	float: left;
-	margin: 1%;
-}
-
-div.size {
-	background-color: #ffaa00;
+	margin: 0%;
+	background-color: #b3b3b3;
 	padding: 25px;
-	border-radius: 12px;
-	border-right: 15px solid #ff9980;
-	border-top: 15px solid #ff9980;
-}
-
-div.meat {
-	background-color: #cc2900;
-	padding: 18px;
-	border-radius: 12px;
-	border-right: 15px solid #ff9980;
-	border-top: 15px solid #ff9980;
-}
-
-div.veg {
-	background-color: #1a1a1a;
-	padding: 18px;
-	border-radius: 12px;
-	border-right: 15px solid #b3b3b3;
-	border-top: 15px solid #b3b3b3;
+	border-right: 3px solid #7a7a52;
+	border-top: 3px solid #7a7a52;
 	color: #ffffb3;
 }
 
-div.cheese {
-	background-color: #ffffb3;
-	padding: 18px;
-	border-radius: 12px;
-	border-right: 15px solid #ffffe5;
-	border-top: 15px solid #ffffe5;
-}
-
-div.sauce {
-	background-color: #00b359;
-	padding: 18px;
-	border-radius: 12px;
-	border-right: 15px solid #4dffa5;
-	border-top: 15px solid #4dffa5;
-}
 
 input.pizza-size {
-	margin: 15%;
+	margin: 10%;
 }
 
 input.pizza-item {
-	margin: 20%;
+	margin: 10%;
 }
 
 button {
-	margin-top: 25px;
-	height: 120px;
+	margin-top: 5px;
+	height: 340px;
+	font-size: 1em;
 	background-color: #009933;
 	border-top: 5px solid #70db70;
 	border-right: 5px solid #70db70;
-	border-radius: 12px;
 }
+
+div.receipt {
+	display: none;
+	width: 20%;
+	height: 350px;
+	margin-top: -345px;
+	float: right;
+	background-color: #ffffb3;
+	border-radius: 2px;
+}
+
+ul.output {
+	list-style: none;
+}
+
 

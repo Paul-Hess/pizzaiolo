@@ -32,6 +32,7 @@ Pizza.prototype.priceCalc = function(choicesArray) {
 }
 
 $(function() {
+
 	$('form.pizza-selections').on("submit", function(event) {
 		event.preventDefault();
 		$('li.receipt-list').remove();
@@ -50,7 +51,7 @@ $(function() {
 
 		$('input.pizza-size').each(function() {
 			if ($(this).prop('checked')) {
-				var sizeName = $(this).prop('placeholder');
+				var sizeName = $(this).prop('id');
 				var sizePrice = parseFloat($(this).val());
 				$('ul.output').append('<li class="receipt-list"></li>');
 				newPizza.setSize(sizeName, sizePrice);
@@ -59,7 +60,9 @@ $(function() {
 		});
 
 		$('ul.output').append('<li class="receipt-list"></li>');
-		$('li.receipt-list').last().text("Your total is: $" + newPizza.priceCalc(newPizza.choices));
-
+		var thisTotal = newPizza.priceCalc(newPizza.choices);
+		$('li.receipt-list').last().text("This pizza total is: $" + thisTotal);
+		$('div.receipt').show();
 	});
+
 });
