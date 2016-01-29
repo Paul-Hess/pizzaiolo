@@ -1,18 +1,22 @@
 describe('Pizza', function() {
 	it('should create a pizza object', function() {
 		var testPizza = new Pizza();
-		expect(testPizza.toppings).to.eql([]);
-		expect(testPizza.small).to.equal(6);
-		expect(testPizza.medium).to.equal(12);
-		expect(testPizza.large).to.equal(18);
+		expect(testPizza.choices).to.eql([]);
+		expect(testPizza.pieSize).to.equal('');
 		expect(testPizza.price).to.equal(0.00);
 	});
 
 		it('should dynamically create toppings and affix price', function() {
 		var testPizza = new Pizza();
 		testPizza.createTopping('artichoke', 1.75);
-		expect(testPizza.toppings[0]).to.have.any.keys('topping');
+		expect(testPizza.choices[0]).to.have.any.keys('topping');
 	});
+
+		it('should dynamically set the size and price of the pizza', function() {
+			var testPizza = new Pizza();
+			testPizza.setSize('small', 8.00);
+			expect(testPizza.pieSize).to.have.any.keys('inches');
+		})
 
 		it('should calculate the price of the pizza', function() {
 		var testPizza = new Pizza();
@@ -20,7 +24,8 @@ describe('Pizza', function() {
 		testPizza.createTopping('cheese', 4.75);
 		testPizza.createTopping('sauce', 0.00);
 		testPizza.createTopping('meat', 5.00);
-		testPizza.priceCalc(testPizza.small, testPizza.toppings);
+		testPizza.setSize('8 in.', 6.00)
+		testPizza.priceCalc(testPizza.choices);
 		expect(testPizza.price).to.equal(17.50);
 	});
 });

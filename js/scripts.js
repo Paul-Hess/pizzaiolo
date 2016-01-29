@@ -1,8 +1,6 @@
 function Pizza() {
-	this.toppings = [];
-	this.small = 6.00;
-	this.medium = 12.00;
-	this.large = 18.00;
+	this.choices = [];
+	this.pieSize = '';
 	this.price = 0.00;
 }
 
@@ -12,23 +10,38 @@ Pizza.prototype.createTopping = function(toppingName, toppingPrice) {
 		this.price = price;
 	}
 	var newTopping = new Topping(toppingName, toppingPrice);
-	this.toppings.push(newTopping);
+	this.choices.push(newTopping);
 }
 
-Pizza.prototype.priceCalc = function(size, toppings) {
-	this.toppings.forEach(function(topping) {
-		size+=topping.price;
+Pizza.prototype.setSize = function(pieSize, sizePrice) {
+	function eachSize(inches, price) {
+		this.inches = inches;
+		this.price = price;
+	}
+	var newSize = new eachSize(pieSize, sizePrice);
+	this.choices.push(newSize);
+	return this.pieSize = newSize;
+}
+
+Pizza.prototype.priceCalc = function() {
+	var totalPrice = 0;
+	this.choices.forEach(function(choice) {
+		totalPrice += choice.price;
 	});
-	return this.price = size;
+	return this.price = totalPrice;
 }
 
 $(function() {
 	$('form#pizza-selections').on("submit", function(event) {
 		event.preventDefault();
+		var newPizza = new Pizza();
 		$('input.pizza-item').each(function() {
 			if ($(this).prop('checked')) {
+				var toppingName = $(this).prop('name');
+				var toppingPrice = $(this).val();
 				$('ul.output').append('<li class="receipt-list"></li>');
-				$('li.receipt-list').text($(this).prop('name') + ": " + $(this).val())
+				newPizza.createTopping(toppingName, toppingPrice);
+				$('li.receipt-list').last().text(toppingName + ": " + toppingPrice)
 			}
 		});
 	});
