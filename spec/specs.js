@@ -12,7 +12,7 @@ describe('Pizza', function() {
 		expect(testPizza.choices[0]).to.have.any.keys('topping');
 	});
 
-		it('should dynamically set the size and price of the pizza', function() {
+		it('should dynamically set the size and size-price of the pizza', function() {
 			var testPizza = new Pizza();
 			testPizza.setSize('small', 8.00);
 			expect(testPizza.pieSize).to.have.any.keys('inches');
