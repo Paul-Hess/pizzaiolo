@@ -13,4 +13,14 @@ describe('Pizza', function() {
 		testPizza.createTopping('artichoke', 1.75);
 		expect(testPizza.toppings[0]).to.have.any.keys('topping');
 	});
+
+		it('should calculate the price of the pizza', function() {
+		var testPizza = new Pizza();
+		testPizza.createTopping('veg', 1.75);
+		testPizza.createTopping('cheese', 4.75);
+		testPizza.createTopping('sauce', 0.00);
+		testPizza.createTopping('meat', 5.00);
+		testPizza.priceCalc(testPizza.small, testPizza.toppings);
+		expect(testPizza.price).to.equal(17.50);
+	});
 });

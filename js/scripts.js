@@ -14,3 +14,11 @@ Pizza.prototype.createTopping = function(toppingName, toppingPrice) {
 	var newTopping = new Topping(toppingName, toppingPrice);
 	this.toppings.push(newTopping);
 }
+
+Pizza.prototype.priceCalc = function(size, toppings) {
+	this.toppings.forEach(function(topping) {
+		size+=topping.price;
+	});
+	return this.price = size;
+}
+
