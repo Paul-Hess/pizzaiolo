@@ -29,3 +29,17 @@ describe('Pizza', function() {
 	expect(testPizza.price).to.equal(17.50);
 	});
 });
+
+describe('Order', function() {
+	it('should hold a collection for ordered pizzas', function() {
+		var testOrder = new Order();
+		expect(testOrder.orders).to.eql([]);
+	});
+
+	it('should dynamically fill the collection with ordered pizzas', function() {
+		var testOrder = new Order();
+		var testPizza = new Pizza();
+		testOrder.addPizza(testPizza);
+		expect(testOrder.orders).to.eql([testPizza]);
+	})
+});

@@ -31,38 +31,48 @@ Pizza.prototype.priceCalc = function(choicesArray) {
 	return this.price = totalPrice;
 }
 
+function Order() {
+	this.orders = [];
+}
+
+Order.prototype.addPizza = function(pizza) {
+	return this.orders.push(pizza);
+}
+
 $(function() {
 
 	$('form.pizza-selections').on("submit", function(event) {
 		event.preventDefault();
 		$('li.receipt-list').remove();
-		var newPizza = new Pizza();
+		$('div.input-wrapper').each(function() {
+			var newPizza = new Pizza();
 
-		$('input.pizza-item').each(function() {
-			if ($(this).prop('checked')) {
-				var toppingName = $(this).prop('name');
-				var toppingPrice = parseFloat($(this).val());
-				$('ul.output').append('<li class="receipt-list"></li>');
-				newPizza.createTopping(toppingName, toppingPrice);
-				$('li.receipt-list').last().text(toppingName + ": $" + toppingPrice)
-			}
+			$('input.pizza-item').last()	.each(function() {
+				if ($(this).prop('checked')) {
+					var toppingName = $(this).prop('name');
+					var toppingPrice = parseFloat($(this).val());
+					$('ul.output').append('<li class="receipt-list"></li>');
+					newPizza.createTopping(toppingName, toppingPrice);
+					$('li.receipt-list').last().text(toppingName + ": $" + toppingPrice)
+				}
+			});
+
+
+			$('input.pizza-size').each(function() {
+				if ($(this).prop('checked')) {
+					var sizeName = $(this).prop('id');
+					var sizePrice = parseFloat($(this).val());
+					$('ul.output').append('<li class="receipt-list"></li>');
+					newPizza.setSize(sizeName, sizePrice);
+					$('li.receipt-list').last().text(sizeName + ": $" + sizePrice)
+				}console.log(newPizza);
+			});
+			console.log(newPizza);
+			$('ul.output').append('<li class="receipt-list"></li>');
+			var thisTotal = newPizza.priceCalc(newPizza.choices);
+			$('li.receipt-list').last().text("This pizza total is: $" + thisTotal);
+			$('div.receipt').show();
 		});
-
-
-		$('input.pizza-size').each(function() {
-			if ($(this).prop('checked')) {
-				var sizeName = $(this).prop('id');
-				var sizePrice = parseFloat($(this).val());
-				$('ul.output').append('<li class="receipt-list"></li>');
-				newPizza.setSize(sizeName, sizePrice);
-				$('li.receipt-list').last().text(sizeName + ": $" + sizePrice)
-			}
-		});
-
-		$('ul.output').append('<li class="receipt-list"></li>');
-		var thisTotal = newPizza.priceCalc(newPizza.choices);
-		$('li.receipt-list').last().text("This pizza total is: $" + thisTotal);
-		$('div.receipt').show();
 	});
 
 });
