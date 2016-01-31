@@ -27,6 +27,7 @@ describe('Order', function() {
 	it('should hold a collection for ordered pizzas', function() {
 		var testOrder = new Order();
 		expect(testOrder.orders).to.eql([]);
+		expect(testOrder.total).to.equal(0);
 	});
 
 	it('should dynamically fill the collection with ordered pizzas', function() {
@@ -34,5 +35,19 @@ describe('Order', function() {
 		var testPizza = new Pizza();
 		testOrder.addPizza(testPizza);
 		expect(testOrder.orders).to.eql([testPizza]);
-	})
+	});
+
+	it('should calculate the grand total of all pizzas', function() {
+		var testOrder = new Order();
+		var testPizza = new Pizza();
+		var testPizza2 = new Pizza();
+		testPizza.createTopping('small', 6.00);
+		testPizza2.createTopping('large', 20.00);
+		testPizza.priceCalc(testPizza.choices);
+		testPizza2.priceCalc(testPizza2.choices);
+		testOrder.addPizza(testPizza);
+		testOrder.addPizza(testPizza2);
+		testOrder.grandTotal(testOrder.orders);
+		expect(testOrder.total).to.equal(26.00);
+	});
 });

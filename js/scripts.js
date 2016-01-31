@@ -32,10 +32,19 @@ Pizza.prototype.priceCalc = function(choicesArray) {
 
 function Order() {
 	this.orders = [];
+	this.total = 0;
 }
 
 Order.prototype.addPizza = function(pizza) {
 	return this.orders.push(pizza);
+}
+
+Order.prototype.grandTotal = function(orders) {
+	var totalPrice = 0;
+	this.orders.forEach(function(index) {
+		totalPrice += index.price;
+	});
+	return this.total = totalPrice;
 }
 
 $(function() {
