@@ -1,6 +1,5 @@
 function Pizza() {
 	this.choices = [];
-	this.pieSize = '';
 	this.price = 0.00;
 }
 
@@ -44,35 +43,37 @@ $(function() {
 	$('form.pizza-selections').on("submit", function(event) {
 		event.preventDefault();
 		$('li.receipt-list').remove();
+		var newOrder = new Order();
+		
 		$('div.input-wrapper').each(function() {
 			var newPizza = new Pizza();
-
-			$('input.pizza-item').last()	.each(function() {
-				if ($(this).prop('checked')) {
-					var toppingName = $(this).prop('name');
-					var toppingPrice = parseFloat($(this).val());
-					$('ul.output').append('<li class="receipt-list"></li>');
-					newPizza.createTopping(toppingName, toppingPrice);
-					$('li.receipt-list').last().text(toppingName + ": $" + toppingPrice)
+			var toppingArray = $(this).find('input.pizza-item');
+			var sizeArray = $(this).find('input.pizza-size');
+			toppingArray.each(function(index) {
+				if (toppingArray[index].checked) {
+					var name = toppingArray[index].name;
+					var price = parseFloat(toppingArray[index].value);
+					$('ul.output').append('<li></li>');
+					$('li').last().text(name + ': $' + price);
+					newPizza.createTopping(name, price);
 				}
 			});
 
-
-			$('input.pizza-size').each(function() {
-				if ($(this).prop('checked')) {
-					var sizeName = $(this).prop('id');
-					var sizePrice = parseFloat($(this).val());
-					$('ul.output').append('<li class="receipt-list"></li>');
-					newPizza.setSize(sizeName, sizePrice);
-					$('li.receipt-list').last().text(sizeName + ": $" + sizePrice)
-				}console.log(newPizza);
+			sizeArray.each(function(index) {
+				if (sizeArray[index].checked) {
+					var name = sizeArray[index].id;
+					var price = parseFloat(sizeArray[index].value);
+					$('ul.output').append('<li></li>');
+					$('li').last().text(name + ': $' + price);
+					newPizza.createTopping(name, price);
+					newPizza.priceCalc(newPizza.choices);
+					$('ul.output').append('<li></li>');
+					$('li').last().text("This pizza total: $" + newPizza.price.toPrecision(4));
+					newOrder.addPizza(newPizza);
+				}
 			});
-			console.log(newPizza);
-			$('ul.output').append('<li class="receipt-list"></li>');
-			var thisTotal = newPizza.priceCalc(newPizza.choices);
-			$('li.receipt-list').last().text("This pizza total is: $" + thisTotal);
-			$('div.receipt').show();
-		});
+		});	
+		$('div.receipt').show(); 
 	});
 
 });
