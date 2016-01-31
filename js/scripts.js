@@ -82,6 +82,9 @@ $(function() {
 				}
 			});
 		});	
+		newOrder.grandTotal(newOrder.orders);
+		$('ul.output').append('<li></li>');
+		$('li').last().text('grand total: $' + newOrder.total);
 		$('div.receipt').show(); 
 	});
 
