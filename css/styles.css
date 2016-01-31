@@ -6,6 +6,11 @@ form.pizza-selections {
 	font-size: 1em;
 }
 
+div.input-wrapper {
+	width: 100%;
+	float: left;
+}
+
 div.size, div.meat, div.veg, div.cheese, div.sauce {
 	height: 300px;
 	width: 10%;
@@ -28,7 +33,8 @@ input.pizza-item {
 }
 
 button {
-	margin-top: 5px;
+	float: right;
+	margin-top: -700px;
 	height: 340px;
 	font-size: 1em;
 	background-color: #009933;
