@@ -5,7 +5,7 @@ function Pizza() {
 
 Pizza.prototype.createPizzaAttribute = function(attributeName, attributePrice) {
 	function Attribute(attribute, price) {
-		this.Attribute = attribute;
+		this.attribute = attribute;
 		this.price = price;
 	}
 	var newAttribute = new Attribute(attributeName, attributePrice);
@@ -60,7 +60,9 @@ $(function() {
 
 			sizeArray.each(function(index) {
 				if (sizeArray[index].checked) {
+					var regexNum = /\d/;
 					var name = sizeArray[index].id;
+					name = name.replace(regexNum, "");
 					var price = parseFloat(sizeArray[index].value);
 					$('ul.output').append('<li></li>');
 					$('li').last().text(name + ': $' + price);
@@ -75,16 +77,14 @@ $(function() {
 
 		newOrder.grandTotal(newOrder.orders);
 		$('ul.output').append('<li></li>');
-		$('li').last().text('grand total: $' + newOrder.total);
-		$('form.pizza-selections, button.addFields, div.receipt').toggle(); 
+		$('li').last().text('grand total: $' + newOrder.total.toPrecision(4));
+		$('form.pizza-selections, button.add-fields, div.receipt').toggle(); 
 	});
 	
-	$('button.addFields').click(function(event) {
-		event.preventDefault();
+	$('button.add-fields').click(function() {
 		parentContainer = $(this).parents('div').eq(0);
 		var clonedSource = parentContainer.find('div.set-one');	
 		var cloneSet = clonedSource.clone();
-		console.log(cloneSet);
 		cloneSet.removeClass('set-one');
 		var itemsCount = $('div.input-wrapper').size();
 		var radioButtons = cloneSet.find('input.pizza-size');
@@ -92,7 +92,31 @@ $(function() {
 			this.id = this.id += itemsCount;
 			this.name = this.name += itemsCount;
 		});
+
+		var radioLabels = cloneSet.find('label.pizza-size');
+		radioLabels.each(function() {
+			this.id = this.id += itemsCount;
+			var labelFor = $(this).prop('for');
+			var labelFor = labelFor += itemsCount;
+			$(this).prop('for', labelFor);
+		});
+
+		var checkBoxes = cloneSet.find('input.pizza-item');
+		checkBoxes.each(function() {
+			this.id = this.id += itemsCount;
+		});
+
+		var labels = cloneSet.find('label.pizza-item');
+		labels.each(function() {
+			this.id = this.id += itemsCount;
+			var labelFor = $(this).prop('for');
+			labelFor = labelFor+= itemsCount;
+			$(this).prop('for', labelFor);
+		});
 		$(clonedSource).after(cloneSet);
+		if (itemsCount === 6) {
+			$('button.add-fields').remove();
+		}
 		return false;
 	});
 

@@ -1,6 +1,10 @@
 * {
 	font-family: arial;
 }
+
+div.main {
+	width: 100%;
+}
 form.pizza-selections {
 	width: 100%;
 	font-size: 1em;
@@ -10,36 +14,259 @@ div.input-wrapper {
 	width: 100%;
 	float: left;
 }
+h1 {
+	text-align: center;
+}
 
 div.size, div.meat, div.veg, div.cheese, div.sauce {
-	height: 300px;
-	width: 10%;
+	height: 1320px;
+	width: 15%;
 	float: left;
 	margin: 0%;
-	background-color: #b3b3b3;
 	padding: 25px;
-	border-right: 3px solid #7a7a52;
-	border-top: 3px solid #7a7a52;
-	color: #ffffb3;
+	box-shadow: 0px 0px 20px 5px #94b8b8;
+	text-align: center;
+	border-radius: 12px;
 }
 
 
-input.pizza-size {
-	margin: 10%;
+input.pizza-size, input.pizza-item {
+	opacity: 0;
+	position: absolute;
 }
 
-input.pizza-item {
-	margin: 10%;
+#smallImg, #smallImg1 {
+background: url(../img/small-pizza.jpg);
+  background-repeat: no-repeat;	
+  text-indent: -999em;
+  border: 5px solid white;
+  width: 75px;
+  height: 75px;
+  display: block;
+  margin-top: -10px;
+  margin-left: 59px;
+}
+
+#mediumImg, #mediumImg1 {
+background: url(../img/med-pizza.jpg);
+  background-repeat: no-repeat;	
+  text-indent: -999em;
+  border: 5px solid white;
+  width: 125px;
+  height: 125px;
+  display: block;
+  margin-top: 3px;
+  margin-left: 35px;
+}
+
+#largeImg, #largeImg1 {
+	background: url(../img/large-pizza.jpg);
+  background-repeat: no-repeat;	
+  text-indent: -999em;
+  border: 5px solid white;
+  width: 150px;
+  height: 150px;
+  display: block;
+  margin-top: 3px;
+  margin-left: 22px;
+}
+
+#anchoviesImg, #anchoviesImg1, #anchoviesImg2, #anchoviesImg3, #anchoviesImg4, #anchoviesImg5, #anchoviesImg6  {
+	background: url(../img/anchovie.jpg);
+  background-repeat: no-repeat;	
+  text-indent: -999em;
+  border: 5px solid white;
+  width: 150px;
+  height: 150px;
+  display: block;
+	margin-left: 11%;
+}
+
+#baconImg, #baconImg1, #baconImg2, #baconImg3, #baconImg4, #baconImg5, #baconImg6  {
+	background: url(../img/bacon.jpg);
+  background-repeat: no-repeat;	
+  text-indent: -999em;
+  border: 5px solid white;
+  width: 150px;
+  height: 150px;
+  display: block;
+	margin-left: 11%;
+}
+
+#prosciuttoImg, #prosciuttoImg1, #prosciuttoImg2, #prosciuttoImg3, #prosciuttoImg4, #prosciuttoImg5, #prosciuttoImg6  {
+	background: url(../img/prosciutto.jpeg);
+  background-repeat: no-repeat;	
+  text-indent: -999em;
+  border: 5px solid white;
+  width: 150px;
+  height: 150px;
+  display: block;
+	margin-left: 11%;
+}
+
+#sausageImg, #sausageImg1, #sausageImg2, #sausageImg3, #sausageImg4, #sausageImg5, #sausageImg6  {
+	background: url(../img/sausage.jpg);
+  background-repeat: no-repeat;	
+  text-indent: -999em;
+  border: 5px solid white;
+  width: 150px;
+  height: 150px;
+  display: block;
+	margin-left: 11%;
+}
+
+#olivesImg, #olivesImg1, #olivesImg2, #olivesImg3, #olivesImg4, #olivesImg5, #olivesImg6  {
+	background: url(../img/green-olives.jpg);
+  background-repeat: no-repeat;	
+  text-indent: -999em;
+  border: 5px solid white;
+  width: 150px;
+  height: 150px;
+  display: block;
+	margin-left: 11%;
+}
+
+#peppersImg, #peppersImg1, #peppersImg2, #peppersImg3, #peppersImg4, #peppersImg5, #peppersImg6  {
+	background: url(../img/bell-pepper.jpg);
+  background-repeat: no-repeat;	
+  text-indent: -999em;
+  border: 5px solid white;
+  width: 150px;
+  height: 150px;
+  display: block;
+	margin-left: 11%;
+}
+
+#garlicImg, #garlicImg1, #garlicImg2, #garlicImg3, #garlicImg4, #garlicImg5, #garlicImg6  {
+	background: url(../img/garlic.jpg);
+  background-repeat: no-repeat;	
+  text-indent: -999em;
+  border: 5px solid white;
+  width: 150px;
+  height: 150px;
+  display: block;
+	margin-left: 11%;
+}
+
+#mushroomImg, #mushroomImg1, #mushroomImg2, #mushroomImg3, #mushroomImg4, #mushroomImg5, #mushroomImg6  {
+	background: url(../img/mushroom.jpg);
+  background-repeat: no-repeat;	
+  text-indent: -999em;
+  border: 5px solid white;
+  width: 150px;
+  height: 150px;
+  display: block;
+	margin-left: 11%;
+}
+
+#pineappleImg, #pineappleImg1, #pineappleImg2, #pineappleImg3, #pineappleImg4, #pineappleImg5, #pineappleImg6  {
+	background: url(../img/pineapple.jpeg);
+  background-repeat: no-repeat;	
+  text-indent: -999em;
+  border: 5px solid white;
+  width: 150px;
+  height: 150px;
+  display: block;
+	margin-left: 11%;
+}
+
+#tomatoImg, #tomatoImg1, #tomatoImg2, #tomatoImg3, #tomatoImg4, #tomatoImg5, #tomatoImg6  {
+	background: url(../img/tomato.jpg);
+  background-repeat: no-repeat;	
+  text-indent: -999em;
+  border: 5px solid white;
+  width: 150px;
+  height: 150px;
+  display: block;
+	margin-left: 11%;
+}
+
+#fontinaImg, #fontinaImg1, #fontinaImg2, #fontinaImg3, #fontinaImg4, #fontinaImg5, #fontinaImg6  {
+	background: url(../img/fontina.jpg);
+  background-repeat: no-repeat;	
+  text-indent: -999em;
+  border: 5px solid white;
+  width: 150px;
+  height: 150px;
+  display: block;
+	margin-left: 11%;
+}
+
+#pecorinoImg, #pecorinoImg1, #pecorinoImg2, #pecorinoImg3, #pecorinoImg4, #pecorinoImg5, #pecorinoImg6  {
+	background: url(../img/pecorino.jpg);
+  background-repeat: no-repeat;	
+  text-indent: -999em;
+  border: 5px solid white;
+  width: 150px;
+  height: 150px;
+  display: block;
+	margin-left: 11%;
+}
+
+#mozzarellaImg, #mozzarellaImg1, #mozzarellaImg2, #mozzarellaImg3, #mozzarellaImg4, #mozzarellaImg5, #mozzarellaImg6  {
+	background: url(../img/mozzarella.jpg);
+  background-repeat: no-repeat;	
+  text-indent: -999em;
+  border: 5px solid white;
+  width: 150px;
+  height: 150px;
+  display: block;
+	margin-left: 11%;
+}
+
+#marinaraImg, #marinaraImg1, #marinaraImg2, #marinaraImg3, #marinaraImg4, #marinaraImg5, #marinaraImg6  {
+	background: url(../img/red-sauce.jpg);
+  background-repeat: no-repeat;	
+  text-indent: -999em;
+  border: 5px solid white;
+  width: 150px;
+  height: 150px;
+  display: block;
+	margin-left: 11%;
+}
+
+#olive-oilImg, #olive-oilImg1, #olive-oilImg2, #olive-oilImg3, #olive-oilImg4, #olive-oilImg5, #olive-oilImg6  {
+	background: url(../img/olive-oil.jpg);
+  background-repeat: no-repeat;	
+  text-indent: -999em;
+  border: 5px solid white;
+  width: 150px;
+  height: 150px;
+  display: block;
+	margin-left: 11%;
+}
+
+input[type="radio"]:checked + label {
+    box-shadow: 0px 0px 6px 6px #85adad;
+}
+
+input[type="checkbox"]:checked + label {
+    box-shadow: 0px 0px 6px 6px #85adad;
 }
 
 button.order {
+	margin-left: -80px;
+	position: fixed;
 	float: right;
-	margin-top: -340px;
-	height: 340px;
+	width: 90px;
+	height: 200px;
 	font-size: 1em;
-	background-color: #009933;
-	border-top: 5px solid #70db70;
-	border-right: 5px solid #70db70;
+	background-color: #FFFFFF;
+	border: 4px solid #94b8b8;
+	border-radius: 8px;
+}
+
+button.add-fields {
+	margin-top: 300px;
+	margin-left: -80px;
+	position: fixed;
+	float: right;
+	width: 90px;
+	height: 200px;
+	font-size: 1em;
+	background-color: #FFFFFF;
+	border: 4px solid #94b8b8;
+	border-radius: 8px;
 }
 
 div.receipt {

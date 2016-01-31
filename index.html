@@ -10,30 +10,79 @@
 	<div class="main">
 		<form class="pizza-selections">
 			<div class="input-wrapper set-one">
+				<h1>Order you next pizza below:</h1>
 				<div class="size">
-					<input id="small" type="radio" name='inches' class='pizza-size' value='6.00'>8 inches
-					<input id="medium" type="radio" name='inches' class='pizza-size' value='12.00'>14 inches
-					<input id="large" type="radio" name='inches' class='pizza-size' value='18.00'>20 inches
+					<h2>Choose your pizza size</h2>
+					<input id="small" type="radio" name='inches' class='pizza-size' value='6.00'>
+					<label for="small" id="smallImg" class="pizza-size"></label>
+					<p class="pizza-size">small pizza: 8 inch pie</p>
+					<input id="medium" type="radio" name='inches' class='pizza-size' value='12.00'>
+					<label for="medium" id="mediumImg" class="pizza-size"></label>
+					<p class="pizza-size">medium pizza: 14 inch pie</p>
+					<input id="large" type="radio" name='inches' class='pizza-size' value='18.00'>
+					<label for="large" id="largeImg" class="pizza-size"></label>
+					<p class="pizza-size">large pizza: 20 inch pie</p>
 				</div>
 
 				<div class="meat">
-					anchoviees<input type="checkbox" name='anchovies' class='pizza-item' value='3.69'>
-					bacon<input type="checkbox" name='bacon' class='pizza-item' value='3.59'>
+					<h2>Proteins from the local butcher</h2>
+					<input id="anchovies" type="checkbox" name='anchovies' class='pizza-item' value='2.50'>
+					<label for="anchovies" id='anchoviesImg' class="pizza-item"></label>
+					<p class="pizza-size">grilled anchovies</p>
+					<input type="checkbox" id="bacon" name='bacon' class='pizza-item' value='3.00'>
+					<label for="bacon" id='baconImg' class="pizza-item"></label>
+					<p class="pizza-size">house-cured bacon</p>
+					<input type="checkbox" id="prosciutto" name='prosciutto' class='pizza-item' value='4.25'>
+					<label for="prosciutto" id='prosciuttoImg' class="pizza-item"></label>
+					<p class="pizza-size">prosciutto di parma</p>
+					<input type="checkbox" id="sausage" name='sausage' class='pizza-item' value='2.50'>
+					<label for="sausage" id='sausageImg' class="pizza-item"></label>
+					<p class="pizza-size">italian sausage</p>
 				</div>
 
 				<div class='veg'>
-					artichokes<input type="checkbox" name='artichokes' class='pizza-item' value='3.21'>
-					black-olives<input type="checkbox" name='black-olives' class='pizza-item' value='3.22'>
+					<h2>Local vegetables</h2>
+					<input type="checkbox" id="olives" name='olives' class='pizza-item' value='3.22'>
+					<label for="olives" id='olivesImg' class="pizza-item" ></label>
+					<p class="pizza-size">castelvetrano olives</p>
+					<input type="checkbox" id="peppers" name='peppers' class='pizza-item' value='3.22'>
+					<label for="peppers" id='peppersImg' class="pizza-item" ></label>
+					<p class="pizza-size">bell peppers</p>
+					<input type="checkbox" id="garlic" name='garlic' class='pizza-item' value='3.22'>
+					<label for="garlic" id='garlicImg' class="pizza-item" ></label>
+					<p class="pizza-size">garlic confit</p>
+					<input type="checkbox" id="mushroom" name='mushroom' class='pizza-item' value='3.22'>
+					<label for="mushroom" id='mushroomImg' class="pizza-item" ></label> 
+					<p class="pizza-size">seasonal mushrooms</p>
+					<input type="checkbox" id="pineapple" name='pineapple' class='pizza-item' value='3.22'>
+					<label for="pineapple" id='pineappleImg' class="pizza-item" ></label> 
+					<p class="pizza-size">pineapple</p>
+					<input type="checkbox" id="tomato" name='tomato' class='pizza-item' value='3.22'>
+					<label for="tomato" id='tomatoImg' class="pizza-item" ></label> 
+					<p class="pizza-size">tomato: seasonally fresh or oven dried</p>
 				</div>
 
 				<div class="cheese">
-					fontina<input type="checkbox" name='fontina' class='pizza-item' value='3.23'>
-					gorgonzola<input type="checkbox" name='gorgonzola' class='pizza-item' value='3.24'>
+					<h2>Imported cheeses</h2>
+					<input type="checkbox" id="fontina" name='fontina' class='pizza-item' value='3.00'>
+					<label for="fontina" id='fontinaImg' class="pizza-item"></label> 
+					<p class="pizza-size">fontina</p>
+					<input type="checkbox" id="pecorino" name='pecorino' class='pizza-item' value='3.00'>
+					<label for="pecorino" id='pecorinoImg' class="pizza-item"></label> 
+					<p class="pizza-size">pecorino</p>
+					<input type="checkbox" id="mozzarella" name='mozzarella' class='pizza-item' value='3.00'>
+					<label for="mozzarella" id='mozzarellaImg' class="pizza-item"></label> 
+					<p class="pizza-size">mozarella di bufala</p>
 				</div>
 
 				<div class="sauce">
-					arrabiata<input type="checkbox" name='arrabiata' class='pizza-item' value='3.26'>
-					bechamella<input type="checkbox" name='bechamella' class='pizza-item' value='3.95'>
+					<h2>Sauce selection</h2>
+					<input type="checkbox" id="marinara" name='marinara' class='pizza-item' value='3.22'>
+					<label for="marinara" id='marinaraImg' class="pizza-item"></label> 
+					<p class="pizza-size">marinara</p>
+					<input type="checkbox" id="olive-oil" name='olive-oil' class='pizza-item' value='3.22'>
+					<label for="olive-oil" id='olive-oilImg' class="pizza-item"></label> 
+					<p class="pizza-size">herb-infused olive oil</p>
 				</div>
 			</div>
 			
@@ -42,7 +91,7 @@
 		<div class="receipt">
 			<ul class="output"></ul>
 		</div>
-		<button class="addFields">Order more pizza!</button>
+		<button class="add-fields">Click here to add fields for another pizza!</button>
 	</div>
 </body>
 </html>

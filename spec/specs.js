@@ -8,7 +8,7 @@ describe('Pizza', function() {
 	it('should dynamically create toppings and affix price', function() {
 	var testPizza = new Pizza();
 	testPizza.createPizzaAttribute('artichoke', 1.75);
-	expect(testPizza.choices[0]).to.have.any.keys('Attribute');
+	expect(testPizza.choices[0]).to.have.any.keys('attribute');
 	});
 
 	it('should calculate the price of the pizza', function() {
