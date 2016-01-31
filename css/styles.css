@@ -32,9 +32,9 @@ input.pizza-item {
 	margin: 10%;
 }
 
-button {
+button.order {
 	float: right;
-	margin-top: -700px;
+	margin-top: -340px;
 	height: 340px;
 	font-size: 1em;
 	background-color: #009933;
@@ -43,11 +43,12 @@ button {
 }
 
 div.receipt {
+	text-align: center;
+	font-size: 2em;
 	display: none;
-	width: 20%;
-	height: 350px;
-	margin-top: -345px;
-	float: right;
+	width: 100%;
+	height: 100%;
+	margin-top: 25px;
 	background-color: #ffffb3;
 	border-radius: 2px;
 }

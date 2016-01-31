@@ -85,7 +85,24 @@ $(function() {
 		newOrder.grandTotal(newOrder.orders);
 		$('ul.output').append('<li></li>');
 		$('li').last().text('grand total: $' + newOrder.total);
-		$('div.receipt').show(); 
+		$('form.pizza-selections, button.addFields, div.receipt').toggle(); 
+	});
+	
+	$('button.addFields').click(function(event) {
+		event.preventDefault();
+		parentContainer = $(this).parents('div').eq(0);
+		var clonedSource = parentContainer.find('div.set-one');	
+		var cloneSet = clonedSource.clone();
+		console.log(cloneSet);
+		cloneSet.removeClass('set-one');
+		var itemsCount = $('div.input-wrapper').size();
+		var radioButtons = cloneSet.find('input.pizza-size');
+		radioButtons.each(function() {
+			this.id = this.id += itemsCount;
+			this.name = this.name += itemsCount;
+		});
+		$(clonedSource).after(cloneSet);
+		return false;
 	});
 
 });
