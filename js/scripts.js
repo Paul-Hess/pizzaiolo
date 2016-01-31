@@ -3,23 +3,13 @@ function Pizza() {
 	this.price = 0.00;
 }
 
-Pizza.prototype.createTopping = function(toppingName, toppingPrice) {
-	function Topping(topping, price) {
-		this.topping = topping;
+Pizza.prototype.createPizzaAttribute = function(attributeName, attributePrice) {
+	function Attribute(attribute, price) {
+		this.Attribute = attribute;
 		this.price = price;
 	}
-	var newTopping = new Topping(toppingName, toppingPrice);
-	this.choices.push(newTopping);
-}
-
-Pizza.prototype.setSize = function(pieSize, sizePrice) {
-	function eachSize(inches, price) {
-		this.inches = inches;
-		this.price = price;
-	}
-	var newSize = new eachSize(pieSize, sizePrice);
-	this.choices.push(newSize);
-	return this.pieSize = newSize;
+	var newAttribute = new Attribute(attributeName, attributePrice);
+	this.choices.push(newAttribute);
 }
 
 Pizza.prototype.priceCalc = function(choicesArray) {
@@ -64,7 +54,7 @@ $(function() {
 					var price = parseFloat(toppingArray[index].value);
 					$('ul.output').append('<li></li>');
 					$('li').last().text(name + ': $' + price);
-					newPizza.createTopping(name, price);
+					newPizza.createPizzaAttribute(name, price);
 				}
 			});
 
@@ -74,7 +64,7 @@ $(function() {
 					var price = parseFloat(sizeArray[index].value);
 					$('ul.output').append('<li></li>');
 					$('li').last().text(name + ': $' + price);
-					newPizza.createTopping(name, price);
+					newPizza.createPizzaAttribute(name, price);
 					newPizza.priceCalc(newPizza.choices);
 					$('ul.output').append('<li></li>');
 					$('li').last().text("This pizza total: $" + newPizza.price.toPrecision(4));
@@ -82,6 +72,7 @@ $(function() {
 				}
 			});
 		});	
+
 		newOrder.grandTotal(newOrder.orders);
 		$('ul.output').append('<li></li>');
 		$('li').last().text('grand total: $' + newOrder.total);

@@ -7,17 +7,17 @@ describe('Pizza', function() {
 
 	it('should dynamically create toppings and affix price', function() {
 	var testPizza = new Pizza();
-	testPizza.createTopping('artichoke', 1.75);
-	expect(testPizza.choices[0]).to.have.any.keys('topping');
+	testPizza.createPizzaAttribute('artichoke', 1.75);
+	expect(testPizza.choices[0]).to.have.any.keys('Attribute');
 	});
 
 	it('should calculate the price of the pizza', function() {
 	var testPizza = new Pizza();
-	testPizza.createTopping('veg', 1.75);
-	testPizza.createTopping('cheese', 4.75);
-	testPizza.createTopping('sauce', 0.00);
-	testPizza.createTopping('meat', 5.00);
-	testPizza.createTopping('small', 6.00);	
+	testPizza.createPizzaAttribute('veg', 1.75);
+	testPizza.createPizzaAttribute('cheese', 4.75);
+	testPizza.createPizzaAttribute('sauce', 0.00);
+	testPizza.createPizzaAttribute('meat', 5.00);
+	testPizza.createPizzaAttribute('small', 6.00);	
 	testPizza.priceCalc(testPizza.choices);
 	expect(testPizza.price).to.equal(17.50);
 	});
@@ -41,8 +41,8 @@ describe('Order', function() {
 		var testOrder = new Order();
 		var testPizza = new Pizza();
 		var testPizza2 = new Pizza();
-		testPizza.createTopping('small', 6.00);
-		testPizza2.createTopping('large', 20.00);
+		testPizza.createPizzaAttribute('small', 6.00);
+		testPizza2.createPizzaAttribute('large', 20.00);
 		testPizza.priceCalc(testPizza.choices);
 		testPizza2.priceCalc(testPizza2.choices);
 		testOrder.addPizza(testPizza);
