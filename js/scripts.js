@@ -123,7 +123,12 @@ $(function() {
 		if (itemsCount === 6) {
 			$('button.add-fields').remove();
 		}
+		$('html, body').animate({
+									scrollTop: $('h1').last().offset().top
+									}, 800);
 		return false;
 	});
-
 });
+$(window).on('unload', function() {
+		return 'bye';
+	});	
