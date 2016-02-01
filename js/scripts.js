@@ -69,7 +69,7 @@ $(function() {
 					newPizza.createPizzaAttribute(name, price);
 					newPizza.priceCalc(newPizza.choices);
 					$('ul.output').append('<li></li>');
-					$('li').last().text("This pizza total: $" + newPizza.price.toPrecision(4));
+					$('li').last().text("This pizza total: $" + newPizza.price.toFixed(2));
 					newOrder.addPizza(newPizza);
 				}
 			});
@@ -77,7 +77,7 @@ $(function() {
 
 		newOrder.grandTotal(newOrder.orders);
 		$('ul.output').append('<li></li>');
-		$('li').last().text('grand total: $' + newOrder.total.toPrecision(4));
+		$('li').last().text('grand total: $' + newOrder.total.toFixed(2));
 		$('form.pizza-selections, button.add-fields, div.receipt').toggle(); 
 	});
 	
@@ -91,6 +91,9 @@ $(function() {
 		radioButtons.each(function() {
 			this.id = this.id += itemsCount;
 			this.name = this.name += itemsCount;
+			if (this.checked) {
+				$(this).prop('checked', false);
+			}
 		});
 
 		var radioLabels = cloneSet.find('label.pizza-size');
@@ -104,6 +107,9 @@ $(function() {
 		var checkBoxes = cloneSet.find('input.pizza-item');
 		checkBoxes.each(function() {
 			this.id = this.id += itemsCount;
+			if (this.checked) {
+				$(this).prop('checked', false);
+			}
 		});
 
 		var labels = cloneSet.find('label.pizza-item');
